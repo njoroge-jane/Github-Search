@@ -1,7 +1,7 @@
 import { Repos } from './repo';
 
-describe('Repositories', () => {
+describe('Repos', () => {
   it('should create an instance', () => {
-    expect(new Repos).toBeTruthy();
+    expect(new Repos()).toBeTruthy();
   });
 });
