@@ -1,62 +1,101 @@
-<h1>GITHUB-SEARCH</h1>
-<p class="github">"A search engine for github-accounts/repositories."</p>
+<header>
+  <h1 class="py-5">GIT SEARCH</h1>
+  <p class="text-white text-center p-2 fw-bold">
+    Find users and repositories of amazing developers here.
+  </p>
+</header>
 <div class="container">
-    <form action="" class="enter">
-        <div class="form-group ">
-            <input type="text" placeholder="Github login" class="form-control " [(ngModel)]="login"
-                name="login" (keyup)="findProfile()">
-        </div>
-    </form>
-    
-    <div *ngIf="profile">
-        <div class="row">
-            <div class="col-sm-3">
-                <img class="img" src="{{profile.avatar_url}}" class="img-fluid" alt="profile">
-            </div>
-            <br>
-            <div class="col-sm-5">
-                <ul class="list-group">
-                    <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
-                    <br>
-                    <li class="list-group-item" *ngIf="profile.blog">{{profile.blog}}</li>
-                    <br>
-                    <li class="list-group-item" *ngIf="profile.email">{{profile.email}}</li>
-                </ul>
-            </div>
-        </div>
-        <div class='row'>
-            <div class="col-sm-6">
-                <div>
-                    <hr>
-                    <p>
-                        <span class="label" class="btn btn-success"> {{profile.followers}} Followers</span>&nbsp;
-                        <span class="label" class="btn btn-info"> {{profile.following}} Following </span>&nbsp;
-                    </p>
-                       <p><span class="label" class="btn btn-primary"> {{profile.public_repos}} Repositories</span></p>
-                    <hr>
-                    <hr>
-                </div>
-                <p>
-                <a href="{{profile.html_url}}" target="_blank" class="m-6 btn btn-outline-warning">Check profile on github</a>
-                </p>
-                <hr>
-                <h2>My Repositories:</h2>
-                <br>
-                        <div *ngFor="let repos of repos">
-                            <div class="card m-2" appHighlight>
-                                <div class=" text-center card-header">
-                                    <h2>{{repos.name}}</h2>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="card-body">
-                                    <p class="dp">{{repos.description}}</p>
-                                    <p>Created on: {{repos.created_at | date}}</p>
-                                </div>
-                                <a href="{{repos.html_url}}" class="text-align-center" target="_blank"class="m-3 btn btn-outline-info card-footer">Check repository on github</a>
-                            </div>
-                        </div> 
-            </div>
-        </div>
+  <form action="" class="enter col-md-12 d-flex justify-content-center">
+    <div class="form-group">
+      <label class="text-primary" for="">Search</label>
+      <input
+        type="text"
+        placeholder="Name..."
+        class="form-control"
+        [(ngModel)]="login"
+        name="login"
+        (keyup)="getProfile()"
+      />
     </div>
+  </form>
+
+  <div *ngIf="profile">
+    <div class="row">
+      <div class="col-sm-3">
+        <img
+          class="img"
+          src="{{ profile.avatar_url }}"
+          class="img-fluid"
+          alt="profile"
+        />
+      </div>
+      <br />
+      <div class="col-sm-5">
+        <ul class="list-group">
+          <li class="list-group-item" *ngIf="profile.bio">{{ profile.bio }}</li>
+          <br />
+          <li class="list-group-item" *ngIf="profile.blog">
+            {{ profile.blog }}
+          </li>
+          <br />
+          <li class="list-group-item" *ngIf="profile.email">
+            {{ profile.email }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div>
+          <hr />
+          <p>
+            <span class="label" class="btn btn-success">
+              {{ profile.followers }} Followers</span
+            >&nbsp;
+            <span class="label" class="btn btn-info">
+              {{ profile.following }} Following </span
+            >&nbsp;
+          </p>
+          <p>
+            <span class="label" class="btn btn-primary">
+              {{ profile.public_repos }} Repositories</span
+            >
+          </p>
+          <hr />
+          <hr />
+        </div>
+        <p>
+          <a
+            href="{{ profile.html_url }}"
+            target="_blank"
+            class="m-6 btn btn-outline-warning"
+            >Check profile on github</a
+          >
+        </p>
+        <hr />
+        <h2>My Repositories:</h2>
+        <br />
+        <div *ngFor="let repos of repos">
+          <div class="card m-2" appHighlight>
+            <div class="text-center card-header">
+              <h2>{{ repos.name }}</h2>
+            </div>
+            <br />
+            <br />
+            <div class="card-body">
+              <p class="dp">{{ repos.description }}</p>
+              <p>Created on: {{ repos.created_at | date }}</p>
+            </div>
+            <a
+              href="{{ repos.html_url }}"
+              class="text-align-center"
+              target="_blank"
+              class="m-3 btn btn-outline-info card-footer"
+              >Check repository on github</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

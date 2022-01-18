@@ -13,28 +13,28 @@ export class ProfileComponent implements OnInit {
 
 constructor(private profileService:ProfileService){
   this.profileService.updateProfile(this.login);
-  this.profileService.getProfileInfo().subscribe(profile => {
+  this.profileService.profileInfo().subscribe(profile => {
     this.profile = profile;
   });
 
-  this.profileService.getProfileRepos().subscribe(repos => {
+  this.profileService.profileRepos().subscribe(repos => {
     this.repos = repos;
   });
 }
-findProfile(){
+getProfile(){
   this.profileService.updateProfile(this.login);
-  this.profileService.getProfileInfo().subscribe(profile => {
+  this.profileService.profileInfo().subscribe(profile => {
     this.profile = profile;
   });
 
-  this.profileService.getProfileRepos().subscribe(repos => {
+  this.profileService.profileRepos().subscribe(repos => {
     this.repos = repos;
   })
 }
   ngOnInit() {
     
     this.profileService.updateProfile('njoroge_jane');
-    this.profileService.getProfileInfo().subscribe(profile => this.profile = profile);
-    this.profileService.getProfileRepos().subscribe(repos =>  this.repos = repos);
+    this.profileService.profileInfo().subscribe(profile => this.profile = profile);
+    this.profileService.profileRepos().subscribe(repos =>  this.repos = repos);
   }
 }
