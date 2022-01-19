@@ -20,6 +20,7 @@
   </form>
 
   <div class="container">
+    <div class="container">
     <div class="row">
       <div class="col-md-5">
         <div *ngIf="profile">
@@ -33,7 +34,7 @@
 
         <div class="floatRight">
           <div class="col-md-7">
-            <ul class="list-group col-md-7">
+            <ul class="list-group ">
               <li class="list-group-item m-4" *ngIf="profile.name">
                 {{ profile.name }}
               </li>
@@ -60,11 +61,14 @@
         </div>
       </div>
     </div>
+  </div>
 
     <hr />
     <h2>Repositories:</h2>
-    <br />
-    <div *ngFor="let repos of repos">
+
+  <div class="container">
+<div class="row">
+    <div class="col-md-4" *ngFor="let repos of repos">
       <div class="card m-2" appOnHover>
         <div class="text-center card-header">
           <h2>{{ repos.name }}</h2>
@@ -79,11 +83,13 @@
           href="{{ repos.html_url }}"
           class="text-align-center"
           target="_blank"
-          class="m-3 btn btn-outline-info card-footer"
+          class="m-3 btn btn-outline-warning card-footer"
         >
           On github</a
         >
       </div>
     </div>
+  </div>
+</div>
   </div>
 </div>
