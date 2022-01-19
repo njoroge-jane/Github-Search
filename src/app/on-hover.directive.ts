@@ -1,12 +1,10 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appOnHover]'
+  selector: '[appOnHover]',
 })
 export class OnHoverDirective {
-
-
-  @Input('appOnHover') hoverfont: string='';
+  @Input('appOnHover') hoverfont: string = '';
 
   private el: HTMLElement;
 
