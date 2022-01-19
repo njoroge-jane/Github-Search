@@ -47,31 +47,32 @@
             <p class="btn btn-secondary m-3">
               {{ profile.public_repos }} Repositories
             </p>
+
+            <p>
+              <a
+                href="{{ profile.html_url }}"
+                target="_blank"
+                class="m-6 btn btn-outline-warning"
+                >On github</a
+              >
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <p>
-      <a
-        href="{{ profile.html_url }}"
-        target="_blank"
-        class="m-6 btn btn-outline-warning"
-        >Check profile on github</a
-      >
-    </p>
     <hr />
-    <h2>My Repositories:</h2>
+    <h2>Repositories:</h2>
     <br />
     <div *ngFor="let repos of repos">
-      <div class="card m-2" appHighlight>
+      <div class="card m-2" appOnHover>
         <div class="text-center card-header">
           <h2>{{ repos.name }}</h2>
         </div>
-        <br />
-        <br />
+      
+       
         <div class="card-body">
-          <p class="dp">{{ repos.description }}</p>
+          <p >{{ repos.description }}</p>
           <p>Created on: {{ repos.created_at | date }}</p>
         </div>
         <a
@@ -79,7 +80,8 @@
           class="text-align-center"
           target="_blank"
           class="m-3 btn btn-outline-info card-footer"
-          >Check repository on github</a
+        >
+          On github</a
         >
       </div>
     </div>
