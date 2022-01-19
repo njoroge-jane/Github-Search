@@ -13,7 +13,7 @@ export class OnHoverDirective {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.hover(this.hoverfont || '7px');
+    this.hover(this.hoverfont || '20px');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
@@ -21,6 +21,6 @@ export class OnHoverDirective {
   }
 
   private hover(color: string) {
-    this.el.style.fontSize = '7px';
+    this.el.style.fontSize = '20px';
   }
 }
