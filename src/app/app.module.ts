@@ -10,13 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { DateCountPipe } from './date-count.pipe';
 import { OnHoverDirective } from './on-hover.directive';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     DateCountPipe,
-    OnHoverDirective
+    OnHoverDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ProfileService],
