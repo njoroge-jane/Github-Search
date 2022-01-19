@@ -1,42 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService }from '../profiles.service';
+import { ProfileService } from '../profiles.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profiles.component.html',
-  styleUrls: ['./profiles.component.css']
+  styleUrls: ['./profiles.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  profile:any;
-  repos:any;
-  login:string='';
+  profile: any;
+  repos: any;
+  login: string = '';
 
-constructor(private profileService:ProfileService){
-  this.profileService.updateProfile(this.login);
-  this.profileService.profileInfo().subscribe(profile => {
-    this.profile = profile;
-  });
+  constructor(private profileService: ProfileService) {
+    this.profileService.updateProfile(this.login);
+    this.profileService.profileInfo().subscribe((profile) => {
+      this.profile = profile;
+    });
 
-  this.profileService.profileRepos().subscribe(repos => {
-    this.repos = repos;
-  });
-}
-getProfile(){
-  this.profileService.updateProfile(this.login);
-  this.profileService.profileInfo().subscribe(profile => {
-    this.profile = profile;
-  });
+    this.profileService.profileRepos().subscribe((repos) => {
+      this.repos = repos;
+    });
+  }
+  getProfile() {
+    this.profileService.updateProfile(this.login);
+    this.profileService.profileInfo().subscribe((profile) => {
+      this.profile = profile;
+    });
 
-  this.profileService.profileRepos().subscribe(repos => {
-    this.repos = repos;
-  })
-}
+    this.profileService.profileRepos().subscribe((repos) => {
+      this.repos = repos;
+    });
+  }
   ngOnInit() {
-    
     this.profileService.updateProfile('njoroge_jane');
-    this.profileService.profileInfo().subscribe(profile => this.profile = profile);
-    this.profileService.profileRepos().subscribe(repos =>  this.repos = repos);
+    this.profileService
+      .profileInfo()
+      .subscribe((profile) => (this.profile = profile));
+    this.profileService
+      .profileRepos()
+      .subscribe((repos) => (this.repos = repos));
   }
 }

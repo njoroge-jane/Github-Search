@@ -21,75 +21,76 @@
 
   <div class="container">
     <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <div *ngIf="profile">
-          <img
-            class="img"
-            src="{{ profile.avatar_url }}"
-            class="img-fluid"
-            alt="profile"
-          />
-        </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div *ngIf="profile">
+            <img
+              class="img"
+              src="{{ profile.avatar_url }}"
+              class="img-fluid"
+              alt="profile"
+            />
+          </div>
 
-        <div class="floatRight">
-          <div class="col-md-7">
-            <ul class="list-group ">
-              <li class="list-group-item m-4" *ngIf="profile.name">
-                {{ profile.name }}
-              </li>
-              <li class="list-group-item m-4" *ngIf="profile.email">
-                {{ profile.email }}
-              </li>
-            </ul>
+          <div class="floatRight">
+            <div class="col-md-7">
+              <ul class="list-group">
+                <li class="list-group-item m-4" *ngIf="profile.name">
+                  {{ profile.name }}
+                </li>
+                <li class="list-group-item m-4" *ngIf="profile.email">
+                  {{ profile.email }}
+                </li>
+              </ul>
 
-            <p class="btn btn-success m-3">{{ profile.followers }} Followers</p>
-            <p class="btn btn-info m-3">{{ profile.following }} Following</p>
-            <p class="btn btn-secondary m-3">
-              {{ profile.public_repos }} Repositories
-            </p>
+              <p class="btn btn-success m-3">
+                {{ profile.followers }} Followers
+              </p>
+              <p class="btn btn-info m-3">{{ profile.following }} Following</p>
+              <p class="btn btn-secondary m-3">
+                {{ profile.public_repos }} Repositories
+              </p>
 
-            <p>
-              <a
-                href="{{ profile.html_url }}"
-                target="_blank"
-                class="m-6 btn btn-outline-warning"
-                >On github</a
-              >
-            </p>
+              <p>
+                <a
+                  href="{{ profile.html_url }}"
+                  target="_blank"
+                  class="m-6 btn btn-outline-warning"
+                  >On github</a
+                >
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <hr />
     <h2>Repositories:</h2>
 
-  <div class="container">
-<div class="row">
-    <div class="col-md-4" *ngFor="let repos of repos">
-      <div class="card m-2" appOnHover>
-        <div class="text-center card-header">
-          <h2>{{ repos.name }}</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let repos of repos">
+          <div class="card m-2" appOnHover>
+            <div class="text-center card-header">
+              <h2>{{ repos.name }}</h2>
+            </div>
+
+            <div class="card-body">
+              <p>{{ repos.description }}</p>
+              <p>Created on: {{ repos.created_at | date }}</p>
+            </div>
+            <a
+              href="{{ repos.html_url }}"
+              class="text-align-center"
+              target="_blank"
+              class="m-3 btn btn-outline-warning card-footer"
+            >
+              On github</a
+            >
+          </div>
         </div>
-      
-       
-        <div class="card-body">
-          <p >{{ repos.description }}</p>
-          <p>Created on: {{ repos.created_at | date }}</p>
-        </div>
-        <a
-          href="{{ repos.html_url }}"
-          class="text-align-center"
-          target="_blank"
-          class="m-3 btn btn-outline-warning card-footer"
-        >
-          On github</a
-        >
       </div>
     </div>
-  </div>
-</div>
   </div>
 </div>

@@ -1,11 +1,11 @@
-header{
-  background-image: url('../../assets/background-image/download.jpeg');
+header {
+  background-image: url("../../assets/background-image/download.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-h1{
+h1 {
   color: rgb(182, 178, 178);
 }
-header p{
+header p {
   background-color: rgba(128, 128, 128, 0.541);
 }
